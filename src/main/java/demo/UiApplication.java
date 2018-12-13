@@ -1,8 +1,6 @@
 package demo;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -24,9 +22,15 @@ public class UiApplication {
 
 	@RequestMapping("/query/{query}/{type}")
 	public Map<String,Object> query(@PathVariable String query, @PathVariable String type) {
+    Set<Result> set = new HashSet<>();
+    for (int i = 0; i < 100; i++) {
+      set.add(new Result("title_" + i, "address_" + i));
+    }
+
 		Map<String,Object> model = new HashMap<String,Object>();
 		model.put("id", "Kathawala presents : " + query);
-		model.put("content", "Type :: " + type);
+    model.put("content", "Type :: " + type);
+    model.put("results", set);
 		return model;
 	}
 
@@ -35,4 +39,31 @@ public class UiApplication {
 		SpringApplication.run(UiApplication.class, args);
 	}
 
+	static class Result {
+	  String title;
+	  String address;
+
+    public Result() {}
+
+    public Result(String title, String address) {
+      this.title = title;
+      this.address = address;
+    }
+
+    public String getTitle() {
+      return title;
+    }
+
+    public void setTitle(String title) {
+      this.title = title;
+    }
+
+    public String getAddress() {
+      return address;
+    }
+
+    public void setAddress(String address) {
+      this.address = address;
+    }
+  }
 }

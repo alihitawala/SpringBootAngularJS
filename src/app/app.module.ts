@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PagerService } from './services';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,9 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    PagerService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
