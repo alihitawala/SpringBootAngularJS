@@ -1,0 +1,12 @@
+<div style="text-align:center"class="container">
+  <h1>
+    Saba's Project {{title}}!
+  </h1>
+  <div class="container">
+    <p><span>{{greeting.id}}</span></p>
+    <p><span>{{greeting.content}}</span></p>
+  </div>
+  <input #query (keyup.enter)="queryFromServer(query.value)">
+  <button (click)="queryFromServer(query.value); query.value=''">Query</button>
+</div>
+
