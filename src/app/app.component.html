@@ -7,6 +7,8 @@
     <p><span>{{greeting.content}}</span></p>
   </div>
   <input #query (keyup.enter)="queryFromServer(query.value)">
-  <button (click)="queryFromServer(query.value); query.value=''">Query</button>
+  <button (click)="queryFromServer(query.value, 'PageRank'); query.value=''">PageRank</button>
+  <button (click)="queryFromServer(query.value, 'Tfidf'); query.value=''">Tfidf</button>
+  <button (click)="queryFromServer(query.value, 'QD-PageRank'); query.value=''">QD-PageRank</button>
 </div>
 

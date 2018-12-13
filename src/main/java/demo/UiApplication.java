@@ -18,15 +18,15 @@ public class UiApplication {
 	public Map<String,Object> home() {
 		Map<String,Object> model = new HashMap<String,Object>();
 		model.put("id", "Kathawala presents");
-		model.put("content", "Boogle");
+		model.put("content", "Type?");
 		return model;
 	}
 
-	@RequestMapping("/query/{query}")
-	public Map<String,Object> query(@PathVariable String query) {
+	@RequestMapping("/query/{query}/{type}")
+	public Map<String,Object> query(@PathVariable String query, @PathVariable String type) {
 		Map<String,Object> model = new HashMap<String,Object>();
-		model.put("id", query);
-		model.put("content", "Hello World " + query);
+		model.put("id", "Kathawala presents : " + query);
+		model.put("content", "Type :: " + type);
 		return model;
 	}
 

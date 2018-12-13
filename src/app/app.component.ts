@@ -14,9 +14,15 @@ export class AppComponent {
     http.get('resource').subscribe(data => this.greeting = data);
   }
 
-  queryFromServer(query: string){
-      this.http.get('query/' + query).subscribe((res)=>{
-          console.log(res);
-      });
+  queryFromServer(query: string, type: string){
+    if (query === '') {
+      // handle this
+      return;
+    }
+
+    this.http.get('query/' + query + "/" + type).subscribe((res)=>{
+      console.log(res);
+      this.greeting = res;
+    });
   }
 }
